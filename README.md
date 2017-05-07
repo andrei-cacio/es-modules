@@ -47,26 +47,22 @@ console.log(counterModule.counter); // 0
 ```
 
 ## [Commonjs](./modules/common-js)
-CommonJS was one of the widely used module system for the JS ecosystem. 
- 
-## Implementations:
+### Implementations:
 - nodejs
 - browserify (for browser usage)
 - webpack
 
-## Syntax
-- `require() function
+### Syntax
+- `require()` function
 - the `module` object
 
-## Main characteristics:
-### Synchronous parsing 
+### Main characteristics:
+#### Synchronous parsing 
 - all **required** dependencies are loaded synchronous
 - async implementations for better browser support: 
-    - `require.ensure()` (webpack)
-    - `import()` (webpack2)
-    - `System.import()` (systemjs)
+    - `require.ensure()` [(webpack code splitting)](https://webpack.github.io/docs/code-splitting.html)
 
-### Dynamic module structure
+#### Dynamic module structure
 - all dependencies injected using `require()` are handled at runtime.
  
 ```javascript
@@ -86,10 +82,11 @@ if (false) {
 require('./module');
 ```
 
-### Cyclic dependencies support (sorta)
+#### Cyclic dependencies support (sorta)
 [Example from Nodejs docs](./modules/common-js/cyclic-deps)[[7]](https://github.com/andrei-cacio/es-modules#references)
-  
- ```javascript
+
+#### Counter example
+```javascript
 // counter.js
  let counter = 0;
     const increaseCounter = () => counter++;
@@ -117,6 +114,49 @@ function main() {
 module.exports = main;
 ```
 
+## ES Modules
+### Implementations
+- webpack + babel
+- rollup
+
+### Syntax
+#### import[[5]](https://github.com/andrei-cacio/es-modules#references)
+```javascript
+import defaultMember from "module-name";
+import * as name from "module-name";
+import { member } from "module-name";
+import { member as alias } from "module-name";
+import { member1 , member2 } from "module-name";
+import { member1 , member2 as alias2 , [...] } from "module-name";
+import defaultMember, { member [ , [...] ] } from "module-name";
+import defaultMember, * as name from "module-name";
+import "module-name";
+```
+### export[[6]](https://github.com/andrei-cacio/es-modules#references)
+```javascript
+export { name1, name2, …, nameN };
+export { variable1 as name1, variable2 as name2, …, nameN };
+export let name1, name2, …, nameN; // also var
+export let name1 = …, name2 = …, …, nameN; // also var, const
+
+export default expression;
+export default function (…) { … } // also class, function*
+export default function name1(…) { … } // also class, function*
+export { name1 as default, … };
+
+// Stage 1 proposal - Lee Byron
+export * from …;
+export { name1, name2, …, nameN } from …;
+export { import1 as name1, import2 as name2, …, nameN } from …;
+```
+
+### Main characteristics:
+#### Static module structure
+- all `import`s and `export`s must be declared top level
+- `import`s are hoisted
+- all `import`s are read only views on exports [[13]](https://github.com/andrei-cacio/es-modules#references)
+
+
 # References
 1. [ECMAScript modules in browsers - Jake Archibald](https://jakearchibald.com/2017/es-modules-in-browsers/)
 2. [ES6 Modules in Depth - Nicolás Bevacqua](https://ponyfoo.com/articles/es6-modules-in-depth)
@@ -130,3 +170,4 @@ module.exports = main;
 10. [ES Proposals: export * as ns from - Lee Byron](https://github.com/leebyron/ecmascript-export-ns-from)
 11. [The Revealing Module - Addy Osmani](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript)
 12. [Writing Modular JavaScript With AMD, CommonJS & ES Harmony](https://addyosmani.com/writing-modular-js/)
+13. [Exploring ES6 - 16.3.5 Imports are read-only views on exports](http://exploringjs.com/es6/ch_modules.html#_imports-are-read-only-views-on-exports)

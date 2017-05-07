@@ -1,1 +1,1 @@
-console.log('works');
+import './es-modules/cyclic-deps';
