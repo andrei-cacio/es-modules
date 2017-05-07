@@ -25,6 +25,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "chai": "^3.5.0",
     "mocha": "^3.3.0",
+    "sinon": "^2.2.0",
     "webpack": "^2.5.1"
   }
 }
