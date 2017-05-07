@@ -16,7 +16,7 @@ An overview of modules in javascript.
 - import()
 
 
-## [Module pattern](./modules/module-pattern)[11]
+## [Module pattern](./modules/module-pattern)[11](https://github.com/andrei-cacio/es-modules#references)
 This patterns was highly used for data encapsulation and logic decoupling. 
 
 ```javascript
