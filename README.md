@@ -9,11 +9,12 @@ An overview of modules in javascript.
 - AMD
 
 ### Post-transpilers/tooling era
-- ES Modules
-- System.import()
+- `import`/`export`
+- `import()`
+- `System.import()`
 
 ### ES Modules now
-- import()
+- `import` support in the browser [[1]](https://github.com/andrei-cacio/es-modules#references)
 
 
 ## [Module pattern](./modules/module-pattern)[[11]](https://github.com/andrei-cacio/es-modules#references)
