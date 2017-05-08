@@ -13,12 +13,11 @@ An overview of modules in javascript.
 - `import()`
 - `System.import()`
 
-### ES Modules now
+### ES Modules native
 - `import` support in the browser [[1]](https://github.com/andrei-cacio/es-modules#references)
 
 
-## [Module pattern](./modules/module-pattern)[[11]](https://github.com/andrei-cacio/es-modules#references)
-This patterns was highly used for data encapsulation and logic decoupling. 
+## [Module pattern](./modules/module-pattern)[[11]](https://github.com/andrei-cacio/es-modules#references) 
 
 ```javascript
 // counter.js
@@ -58,6 +57,9 @@ console.log(counterModule.counter); // 0
 - the `module` object
 
 ### Main characteristics:
+#### Modules are executed once
+- once a module is required, it is parsed and kept in memory
+
 #### Synchronous parsing 
 - all **required** dependencies are loaded synchronous
 - async implementations for better browser support: 
@@ -130,7 +132,7 @@ import { member as alias } from "module-name";
 import { member1 , member2 } from "module-name";
 import { member1 , member2 as alias2 , [...] } from "module-name";
 import defaultMember, { member [ , [...] ] } from "module-name";
-import defaultMember, * as name from "module-name";
+import defaultMember, * as name from "module-name"
 import "module-name";
 ```
 ### export[[6]](https://github.com/andrei-cacio/es-modules#references)
@@ -152,11 +154,18 @@ export { import1 as name1, import2 as name2, …, nameN } from …;
 ```
 
 ### Main characteristics:
+#### Modules are executed once
+- once a module is required, it is parsed and kept in memory
+
 #### Static module structure
 - all `import`s and `export`s must be declared top level
 - `import`s are hoisted
 - all `import`s are read only views on exports [[13]](https://github.com/andrei-cacio/es-modules#references)
 
+## ES modules native
+### Syntax
+- `import` as a keyword for static module parsing
+- `import()` as a function for dynamic module loading
 
 # References
 1. [ECMAScript modules in browsers - Jake Archibald](https://jakearchibald.com/2017/es-modules-in-browsers/)
