@@ -169,5 +169,6 @@ export { import1 as name1, import2 as name2, …, nameN } from …;
 9. [ES Proposals: export ns from - Lee Byron](https://github.com/leebyron/ecmascript-export-ns-from)
 10. [ES Proposals: export * as ns from - Lee Byron](https://github.com/leebyron/ecmascript-export-ns-from)
 11. [The Revealing Module - Addy Osmani](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript)
-12. [Writing Modular JavaScript With AMD, CommonJS & ES Harmony](https://addyosmani.com/writing-modular-js/)
-13. [Exploring ES6 - 16.3.5 Imports are read-only views on exports](http://exploringjs.com/es6/ch_modules.html#_imports-are-read-only-views-on-exports)
+12. [Writing Modular JavaScript With AMD, CommonJS & ES Harmony - Addy Osmani](https://addyosmani.com/writing-modular-js/)
+13. [Exploring ES6 - 16.3.5 Imports are read-only views on exports - Dr. Axel Rauschmayer](http://exploringjs.com/es6/ch_modules.html#_imports-are-read-only-views-on-exports)
+14. [ES Modules and NodeJS: Hard Choices - Rod Vagg](https://nodesource.com/blog/es-modules-and-node-js-hard-choices/)
