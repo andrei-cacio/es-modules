@@ -152,9 +152,9 @@ export { import1 as name1, import2 as name2, …, nameN } from …;
 
 ### Main characteristics:
 #### Static module structure
-- all `import`s and `export`s must be declared top level
-- `import`s are hoisted
-- all `import`s are read only views on exports [[13]](https://github.com/andrei-cacio/es-modules#references)
+- all `import`'s and `export`'s must be declared top level
+- `import`'s are hoisted
+- all `import`'s are read only views on exports [[13]](https://github.com/andrei-cacio/es-modules#references)
 
 
 # References
