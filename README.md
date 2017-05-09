@@ -163,7 +163,10 @@ export { default } from ...;
 - all `import`'s and `export`'s must be declared top level
 - `import`'s are hoisted
 - all `import`'s are read only views on exports [[13]](https://github.com/andrei-cacio/es-modules#references)
-
+- benefits:
+    - dead code elimination
+    - preparation for HTTP2
+    
 ```javascript
 // module.js
 export default 1+1;
@@ -174,7 +177,7 @@ import two from './module';
 two = 3; //SyntaxError: "two" is read-only
 ```
 
-#### We export live bindings
+#### Exporting live bindings
 Unlike commonjs, ES modules imports are live bindings to the original primitives. (Objects are passed by references so they will be mutated anyways).
 
 ```javascript
@@ -183,7 +186,8 @@ let counter = 0;
 const incrementCounter = () => counter++;
 
 export { counter, incrementCounter };
-
+```
+```javascript
 //index.js
 import { counter, incrementCounter };
 
@@ -195,6 +199,8 @@ console.log(counter); //1
 ### Syntax
 #### `import` as a keyword for static module parsing
 - browser support: `<script type="module"></script>` 
+    - are parsed under `use strict` mode
+    - scoped environment 
 - module script tags are differed
 - only paths like '/' or './' are supported
 - each import does a new fetch for the file
