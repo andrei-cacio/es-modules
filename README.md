@@ -151,6 +151,8 @@ export { name1 as default, … };
 export * from …;
 export { name1, name2, …, nameN } from …;
 export { import1 as name1, import2 as name2, …, nameN } from …;
+export default from ...;
+export { default } from ...;
 ```
 
 ### Main characteristics:
@@ -162,11 +164,61 @@ export { import1 as name1, import2 as name2, …, nameN } from …;
 - `import`'s are hoisted
 - all `import`'s are read only views on exports [[13]](https://github.com/andrei-cacio/es-modules#references)
 
+```javascript
+// module.js
+export default 1+1;
+
+//index.js
+import two from './module';
+
+two = 3; //SyntaxError: "two" is read-only
+```
+
+#### We export live bindings
+Unlike commonjs, ES modules imports are live bindings to the original primitives. (Objects are passed by references so they will be mutated anyways).
+
+```javascript
+//counter.js
+let counter = 0;
+const incrementCounter = () => counter++;
+
+export { counter, incrementCounter };
+
+//index.js
+import { counter, incrementCounter };
+
+console.log(counter); // 0
+incrementCounter();
+console.log(counter); //1
+```
 ## ES modules native
 ### Syntax
-- `import` as a keyword for static module parsing
-- `import()` as a function for dynamic module loading
-- `<script type="module"></script>`
+#### `import` as a keyword for static module parsing
+- browser support: `<script type="module"></script>` 
+- module script tags are differed
+- only paths like '/' or './' are supported
+- each import does a new fetch for the file
+
+```javascript
+<script type="module"
+    import { counter, incrementCounter } from './counter.js';
+        
+        document.body.append(`${counter}\n`);
+        incrementCounter();
+        document.body.append(`${counter}\n`);
+</script>
+```
+    
+#### `import()` as a function for dynamic module loading 
+- stage 3 proposal[[8]](https://github.com/andrei-cacio/es-modules#references)
+
+```javascript
+import('./counter.js').then(counterModule => {
+    console.log(counterModule.counter); // 0
+    counterModule.incrementCounter();
+    console.log(counterModule.counter); // 1
+});
+```
 
 # References
 1. [ECMAScript modules in browsers - Jake Archibald](https://jakearchibald.com/2017/es-modules-in-browsers/)

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ES Modules in the browser</title>
+</head>
+<body>
+
+</body>
+<script type="module">
+    import { counter, incrementCounter } from './counter.js';
+    
+    document.body.append(`${counter}\n`);
+    incrementCounter();
+    document.body.append(`${counter}\n`);
+</script>
+</html>

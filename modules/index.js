@@ -1,1 +1,1 @@
-import './es-modules/cyclic-deps';
+import './es-modules/dynamic-imports';
