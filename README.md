@@ -166,7 +166,7 @@ export { default } from ...;
 - benefits:
     - dead code elimination
     - preparation for HTTP2
-    
+    - variable checking (linting, etc.)
 ```javascript
 // module.js
 export default 1+1;
@@ -195,6 +195,9 @@ console.log(counter); // 0
 incrementCounter();
 console.log(counter); //1
 ```
+
+#### Unit testing modules
+
 ## ES modules native
 ### Syntax
 #### `import` as a keyword for static module parsing
