@@ -245,3 +245,4 @@ import('./counter.js').then(counterModule => {
 13. [Exploring ES6 - 16.3.5 Imports are read-only views on exports - Dr. Axel Rauschmayer](http://exploringjs.com/es6/ch_modules.html#_imports-are-read-only-views-on-exports)
 14. [ES Modules and NodeJS: Hard Choices - Rod Vagg](https://nodesource.com/blog/es-modules-and-node-js-hard-choices/)
 15. [ES6 Modules in Chrome Canary M60](https://medium.com/@samthor/es6-modules-in-chrome-canary-m60-ba588dfb8ab7)
+16. [PICing on Javascript for fun and profit - CHRIS LEARY](http://blog.cdleary.com/2010/09/picing-on-javascript-for-fun-and-profit/)
