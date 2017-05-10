@@ -167,6 +167,7 @@ export { default } from ...;
     - dead code elimination
     - preparation for HTTP2
     - variable checking (linting, etc.)
+    - faster property lookups [[16]]((https://github.com/andrei-cacio/es-modules#references))
 ```javascript
 // module.js
 export default 1+1;
@@ -197,6 +198,10 @@ console.log(counter); //1
 ```
 
 #### Unit testing modules
+There are multiple strategies of testing modules. We can split the module types into three categories:
+ 1. simple/independent modules (no dependencies)
+ 2. modules which have local dependencies
+ 3. modules which have 3rd party dependencies
 
 ## ES modules native
 ### Syntax

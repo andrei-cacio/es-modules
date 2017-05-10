@@ -1,7 +1,7 @@
-import { expect } from 'chai';
-import sinon from 'sinon';
+const { expect } = require('chai');
+const sinon = require('sinon');
 
-import { main, counterModule} from './';
+const { main, counterModule} = require('./');
 
 describe('module-pattern', () => {
    describe('counterModule', () => {

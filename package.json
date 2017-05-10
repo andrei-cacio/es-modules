@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack && node ./build/bundle.js",
-    "test": "mocha --compilers js:babel-core/register ./modules/**/*.spec.js"
+    "test": "mocha --compilers js:babel-core/register"
   },
   "repository": {
     "type": "git",

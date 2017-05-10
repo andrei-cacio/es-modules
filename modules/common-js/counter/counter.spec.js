@@ -1,6 +1,6 @@
-import { expect } from 'chai';
+const expect = require('chai').expect;
 
-import counterModule from './counter';
+const counterModule = require('./counter');
 
 describe('counterModule', () => {
     beforeEach(() => {

@@ -1,1 +1,1 @@
-import './es-modules/dynamic-imports';
+import './es-modules/live-bindings';
