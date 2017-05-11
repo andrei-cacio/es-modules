@@ -60,6 +60,20 @@ console.log(counterModule.counter); // 0
 #### Modules are executed once
 - once a module is required, it is parsed and kept in memory
 
+#### Required data is passed by value/reference
+- variables are passed by value
+```javascript
+// module.js
+const a = 2;
+
+module.exports = { a };
+```
+
+```javascript
+// index.js
+const a = require('./module').a;
+```
+
 #### Synchronous parsing 
 - all **required** dependencies are loaded synchronous
 - async implementations for better browser support: 
