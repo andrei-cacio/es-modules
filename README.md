@@ -85,7 +85,7 @@ if (false) {
 require('./module');
 ```
 
-#### Cyclic dependencies support (sorta)
+#### Cyclic dependencies support
 [Example from Nodejs docs](./modules/common-js/cyclic-deps)[[7]](https://github.com/andrei-cacio/es-modules#references)
 
 #### Counter example
@@ -159,7 +159,7 @@ export { default } from ...;
 #### Modules are executed once
 - once a module is required, it is parsed and kept in memory
 
-#### Static module structure
+#### Static module structure[[3]]((https://github.com/andrei-cacio/es-modules#references))
 - all `import`'s and `export`'s must be declared top level
 - `import`'s are hoisted
 - all `import`'s are read only views on exports [[13]](https://github.com/andrei-cacio/es-modules#references)
@@ -252,3 +252,4 @@ import('./counter.js').then(counterModule => {
 15. [ES6 Modules in Chrome Canary M60](https://medium.com/@samthor/es6-modules-in-chrome-canary-m60-ba588dfb8ab7)
 16. [PICing on Javascript for fun and profit - CHRIS LEARY](http://blog.cdleary.com/2010/09/picing-on-javascript-for-fun-and-profit/)
 17. [Optimizing Dynamically-Typed Object-Oriented Languages With Polymorphic Inline Caches Paper](http://www.selflanguage.org/_static/published/pics.pdf)
+18. [EcmaScript Specifications 7th Edition June 2016 - Modules section](https://www.ecma-international.org/ecma-262/7.0/#sec-modules)
