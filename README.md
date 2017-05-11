@@ -251,3 +251,4 @@ import('./counter.js').then(counterModule => {
 14. [ES Modules and NodeJS: Hard Choices - Rod Vagg](https://nodesource.com/blog/es-modules-and-node-js-hard-choices/)
 15. [ES6 Modules in Chrome Canary M60](https://medium.com/@samthor/es6-modules-in-chrome-canary-m60-ba588dfb8ab7)
 16. [PICing on Javascript for fun and profit - CHRIS LEARY](http://blog.cdleary.com/2010/09/picing-on-javascript-for-fun-and-profit/)
+17. [Optimizing Dynamically-Typed Object-Oriented Languages WithPolymorphic Inline Caches Paper](http://www.selflanguage.org/_static/published/pics.pdf)
