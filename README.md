@@ -181,12 +181,21 @@ export { default } from ...;
 // module.js
 export default 1+1;
 export const a = { b: 2 };
+```
 
+```javascript
 //index.js
 import * as module from './module';
 
-two = 3; //SyntaxError: "two" is read-only
 module.a.b = 3; //SyntaxError: Cannot assign to read-only object
+```
+
+or 
+
+```javascript
+import { a } from './module';
+
+a = 2 //SyntaxError
 ```
 - benefits:
     - dead code elimination
