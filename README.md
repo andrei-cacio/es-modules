@@ -177,19 +177,31 @@ export { default } from ...;
 - all `import`'s and `export`'s must be declared top level
 - `import`'s are hoisted
 - all `import`'s are read only views on exports [[13]](https://github.com/andrei-cacio/es-modules#references)
+```javascript
+// module.js
+export default 1+1;
+export const a = { b: 2 };
+
+//index.js
+import * as module from './module';
+
+two = 3; //SyntaxError: "two" is read-only
+module.a.b = 3; //SyntaxError: Cannot assign to read-only object
+```
 - benefits:
     - dead code elimination
     - preparation for HTTP2
     - variable checking (linting, etc.)
     - faster property lookups [[16]]((https://github.com/andrei-cacio/es-modules#references))
+
 ```javascript
-// module.js
-export default 1+1;
+var lib = require('lib');
+lib.someFunc();
+```
 
-//index.js
-import two from './module';
-
-two = 3; //SyntaxError: "two" is read-only
+```javascript
+import * as lib from 'lib';
+lib.someFunc();
 ```
 
 #### Exporting live bindings
