@@ -85,10 +85,20 @@ const a = require('./module').a;
 ```javascript
 //module.js
 console.log('module1 required');
+```
 
+```javascript
 //module2.js
 console.log('module2 required');
+```
 
+```javascript
+//module3.js
+console.log('module3 required');
+```
+
+
+```javascript
 //index.js
 setTimeout(() => require('./module2'), 3000);
 
