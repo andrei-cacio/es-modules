@@ -240,7 +240,7 @@ There are multiple strategies of testing modules. We can split the module types 
 - each import does a new fetch for the file
 
 ```javascript
-<script type="module"
+<script type="module">
     import { counter, incrementCounter } from './counter.js';
         
         document.body.append(`${counter}\n`);
