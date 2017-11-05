@@ -3,14 +3,25 @@
 <head>
 	<title>ES Modules in the browser</title>
 </head>
+<style>
+	.counterStyle {
+		color: red;
+		padding: 10px;
+		margin: 10px;
+		background: black;
+	}
+</style>
 <body>
 
 </body>
 <script type="module">
     import { counter, incrementCounter } from './counter.js';
+    import domHelpers from './dom-helpers.js';
 
-    document.body.append(`${counter}\n`);
+    const counterRenderer = domHelpers.appendSpanOnBody('counterStyle');
+
+    counterRenderer(counter);
     incrementCounter();
-    document.body.append(`${counter}\n`);
+    counterRenderer(counter);
 </script>
 </html>
