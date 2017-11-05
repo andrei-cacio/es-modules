@@ -60,6 +60,20 @@ console.log(counterModule.counter); // 0
 #### Modules are executed once
 - once a module is required, it is parsed and kept in memory
 
+#### Required data is passed by value/reference
+- variables are passed by value
+```javascript
+// module.js
+const a = 2;
+
+module.exports = { a };
+```
+
+```javascript
+// index.js
+const a = require('./module').a;
+```
+
 #### Synchronous parsing 
 - all **required** dependencies are loaded synchronous
 - async implementations for better browser support: 
@@ -71,10 +85,20 @@ console.log(counterModule.counter); // 0
 ```javascript
 //module.js
 console.log('module1 required');
+```
 
+```javascript
 //module2.js
 console.log('module2 required');
+```
 
+```javascript
+//module3.js
+console.log('module3 required');
+```
+
+
+```javascript
 //index.js
 setTimeout(() => require('./module2'), 3000);
 
@@ -85,25 +109,25 @@ if (false) {
 require('./module');
 ```
 
-#### Cyclic dependencies support (sorta)
+#### Cyclic dependencies support
 [Example from Nodejs docs](./modules/common-js/cyclic-deps)[[7]](https://github.com/andrei-cacio/es-modules#references)
 
 #### Counter example
 ```javascript
 // counter.js
- let counter = 0;
-    const increaseCounter = () => counter++;
-    const decreaseCounter = () => counter--;
-    const resetCounter = () => counter = 0;
+let counter = 0;
+const increaseCounter = () => counter++;
+const decreaseCounter = () => counter--;
+const resetCounter = () => counter = 0;
 
-    module.exports = {
-        increaseCounter,
-        decreaseCounter,
-        resetCounter,
-        get counter() {
-            return counter;
-        }
-    };
+module.exports = {
+    increaseCounter,
+    decreaseCounter,
+    resetCounter,
+    get counter() {
+        return counter;
+    }
+};
 ```
 ```javascript
 // index.js
@@ -159,23 +183,44 @@ export { default } from ...;
 #### Modules are executed once
 - once a module is required, it is parsed and kept in memory
 
-#### Static module structure
+#### Static module structure[[3]]((https://github.com/andrei-cacio/es-modules#references))
 - all `import`'s and `export`'s must be declared top level
 - `import`'s are hoisted
 - all `import`'s are read only views on exports [[13]](https://github.com/andrei-cacio/es-modules#references)
+```javascript
+// module.js
+export default 1+1;
+export const a = { b: 2 };
+```
+
+```javascript
+//index.js
+import * as module from './module';
+
+module.a.b = 3; //SyntaxError: Cannot assign to read-only object
+```
+
+or 
+
+```javascript
+import { a } from './module';
+
+a = 2 //SyntaxError
+```
 - benefits:
     - dead code elimination
     - preparation for HTTP2
     - variable checking (linting, etc.)
     - faster property lookups [[16]]((https://github.com/andrei-cacio/es-modules#references))
+
 ```javascript
-// module.js
-export default 1+1;
+var lib = require('lib');
+lib.someFunc();
+```
 
-//index.js
-import two from './module';
-
-two = 3; //SyntaxError: "two" is read-only
+```javascript
+import * as lib from 'lib';
+lib.someFunc();
 ```
 
 #### Exporting live bindings
@@ -214,7 +259,7 @@ There are multiple strategies of testing modules. We can split the module types 
 - each import does a new fetch for the file
 
 ```javascript
-<script type="module"
+<script type="module">
     import { counter, incrementCounter } from './counter.js';
         
         document.body.append(`${counter}\n`);
@@ -251,3 +296,5 @@ import('./counter.js').then(counterModule => {
 14. [ES Modules and NodeJS: Hard Choices - Rod Vagg](https://nodesource.com/blog/es-modules-and-node-js-hard-choices/)
 15. [ES6 Modules in Chrome Canary M60](https://medium.com/@samthor/es6-modules-in-chrome-canary-m60-ba588dfb8ab7)
 16. [PICing on Javascript for fun and profit - CHRIS LEARY](http://blog.cdleary.com/2010/09/picing-on-javascript-for-fun-and-profit/)
+17. [Optimizing Dynamically-Typed Object-Oriented Languages With Polymorphic Inline Caches Paper](http://www.selflanguage.org/_static/published/pics.pdf)
+18. [EcmaScript Specifications 7th Edition June 2016 - Modules section](https://www.ecma-international.org/ecma-262/7.0/#sec-modules)
