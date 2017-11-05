@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>ES Modules in the browser</title>
-</head>
-<style>
-	.counterStyle {
-		color: red;
-		padding: 10px;
-		margin: 10px;
-		background: black;
-	}
-</style>
-<body>
+  <head>
+  	<title>ES Modules in the browser</title>
+  </head>
+  <style>
+  	.counterStyle {
+  		color: red;
+  		padding: 10px;
+  		margin: 10px;
+  		background: black;
+  	}
+  </style>
+  
+  <body></body>
 
-</body>
-<script type="module">
-    import { counter, incrementCounter } from './counter.js';
-    import domHelpers from './dom-helpers.js';
+  <script type="module">
+      import { counter, incrementCounter } from './counter.js';
+      import domHelpers from './dom-helpers.js';
 
-    const counterRenderer = domHelpers.appendSpanOnBody('counterStyle');
+      const counterRenderer = domHelpers.appendSpanOnBody('counterStyle');
 
-    counterRenderer(counter);
-    incrementCounter();
-    counterRenderer(counter);
-</script>
+      counterRenderer(counter);
+      incrementCounter();
+      counterRenderer(counter);
+  </script>
 </html>
