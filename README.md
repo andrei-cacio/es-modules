@@ -299,3 +299,4 @@ import('./counter.js').then(counterModule => {
 17. [Optimizing Dynamically-Typed Object-Oriented Languages With Polymorphic Inline Caches Paper](http://www.selflanguage.org/_static/published/pics.pdf)
 18. [EcmaScript Specifications 7th Edition June 2016 - Modules section](https://www.ecma-international.org/ecma-262/7.0/#sec-modules)
 19. [WHATWG Integration with the ES Spec](https://html.spec.whatwg.org/multipage/webappapis.html#integration-with-the-javascript-module-system)
+20. [ES Modules interview with Bradley Farias](https://survivejs.com/blog/es-modules-interview/)
